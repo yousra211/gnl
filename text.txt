@@ -1,0 +1,6 @@
+21tal 40
+drwxr-xr-x  5 yhamdaou  candidates    170 Nov 27 18:42 .
+drwxr-xr-x  9 yhamdaou  candidates    306 Nov 27 18:20 ..
+hellooHELLOOXR-X  1 YHAMDAOU  CANDIDATES  12684 NOV 27 18:42 A.OUT
+-r--  1 yhamdaou  candidates    220 Nov 27 18:39 main.c
+-rw-r--r--  1 yhamdaou  candidates      0 Nov 27 18:42 text.txt
