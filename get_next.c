@@ -6,7 +6,7 @@
 /*   By: yhamdaou <yhamdaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/29 11:45:22 by yhamdaou          #+#    #+#             */
-/*   Updated: 2025/11/29 20:41:59 by yhamdaou         ###   ########.fr       */
+/*   Updated: 2025/11/30 14:47:42 by yhamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,18 +46,16 @@ char *get_next_line(int fd)
 	char *s = NULL;
 	int j = 0;
 	static char *reste = NULL;
-	char sn[1];
-	sn[0] = '\0';
-	reste = ft_strdup(sn);
 	char *comb = NULL;
+	int byte = 0;
 	
-	char string[buffer];
+	char *string = NULL;
 	string[0] = '\0';
 	char *str = NULL;
 	int k = 0;
 	if (ft_strchr(reste, '\n') == 1)
 	{
-		printf("yes");
+		// printf("yes");
 		if (reste[0] == '\n')
 		{
 			s = ft_strdup(reste);
@@ -86,10 +84,17 @@ char *get_next_line(int fd)
 		return (s);
 	}
 	
-	while (ft_strchr(str, '\n') != 1)
+	// while (ft_strchr(str, '\n') != 1)
+	// {
+	// 	read(fd, string, buffer - 1);
+	// 	string[buffer - 1] = '\0';
+	// 	str = ft_strjoin(str, string);
+	// }
+		while (ft_strchr(str, '\n') != 1)
 	{
-		read(fd, string, buffer - 1);
-		string[buffer - 1] = '\0';
+		string = malloc(buffer + 1);
+		byte = read(fd, string, buffer);
+		string[byte] = '\0';
 		str = ft_strjoin(str, string);
 	}
 	comb = ft_strjoin(reste, str);
@@ -100,10 +105,12 @@ char *get_next_line(int fd)
 		s = ft_strjoin(s, s1);
 		i++;
 	}
+	// for \n
+		s1[0] = comb[i];
+		s1[1] = '\0';
+		s = ft_strjoin(s, s1);
+		i++;
 	reste = ft_strdup(&comb[i]);
-		if (ft_strchr(reste, '\n') == 1)
-			printf("yes\n");
-		// printf("\n|||%s|||\n", reste);
 	return(s);
 }
 
@@ -112,17 +119,31 @@ int main()
 	int fd = open("my.txt", O_RDWR);
 	char *s = NULL;
 	s = get_next_line(fd);
-	write(1, s, ft_strlen(s));
+	printf("1st : %s", s);
+	// write(1, s, ft_strlen(s));
+	printf("11");
 	printf("\n");
 	
 	char *s1 = NULL;
 	s1 = get_next_line(fd);
-	write(1, s1, ft_strlen(s1));
+	printf("2nd : %s", s1);
+	// write(1, s1, ft_strlen(s1));
+	printf("22");
 	printf("\n");
 	
-	// char *s2 = NULL;
-	// s2 = get_next_line(fd);
-	// write(1, s2, ft_strlen(s2));
+	char *s2 = NULL;
+	s2 = get_next_line(fd);
+	printf("3nd : %s", s2);
+	// write(1, s1, ft_strlen(s1));
+	printf("3");
+	printf("\n");
+
+	char *s3 = NULL;
+	s3 = get_next_line(fd);
+	printf("4nd : %s", s3);
+	// write(1, s1, ft_strlen(s1));
+	printf("4");
+	printf("\n");
 		
 	close(fd);
 }
