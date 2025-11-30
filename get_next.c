@@ -6,7 +6,7 @@
 /*   By: yhamdaou <yhamdaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/29 11:45:22 by yhamdaou          #+#    #+#             */
-/*   Updated: 2025/11/30 14:47:42 by yhamdaou         ###   ########.fr       */
+/*   Updated: 2025/11/30 14:50:14 by yhamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,7 @@ char *get_next_line(int fd)
 	
 	// while (ft_strchr(str, '\n') != 1)
 	// {
+		
 	// 	read(fd, string, buffer - 1);
 	// 	string[buffer - 1] = '\0';
 	// 	str = ft_strjoin(str, string);
