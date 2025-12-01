@@ -1,4 +1,4 @@
-#include "get_next.h"
+#include "get_next_line.h"
 
 int	ft_strlen(const char *str)
 {
@@ -98,32 +98,3 @@ int	ft_strchr(const char *s, int c)
 	}
 	return (0);
 }
-
-char *ft_gnl(int fd)
-{
-	char string[2];
-	string[0] = '\0';
-	char *str = NULL;
-	while (ft_strchr(str, '\n') != 1)
-	{
-		read(fd, string, 1);
-		string[1] = '\0';
-		str = ft_strjoin(str, string);
-	}
-	return(str);
-}
-// int main()
-// {
-// 	int fd = open("my.txt",O_RDWR);
-// 	char *s = ft_gnl(fd);
-// 	write(1, s, ft_strlen(s));
-// 		char *s1 = ft_gnl(fd);
-// 	write(1, s1, ft_strlen(s1));
-// 	// int i = 0;
-// 	// while (i < ft_strlen(s))
-// 	// {
-// 	// 	write(1, &s[i], 1);
-// 	// 	i++;
-// 	// }
-// 	close(fd);
-// }
