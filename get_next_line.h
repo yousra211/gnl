@@ -6,7 +6,7 @@
 /*   By: yhamdaou <yhamdaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/29 13:24:53 by yhamdaou          #+#    #+#             */
-/*   Updated: 2025/12/03 21:14:41 by yhamdaou         ###   ########.fr       */
+/*   Updated: 2025/12/03 21:37:31 by yhamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,9 @@
 
 #include <stdio.h>
 
+#ifndef BUFFER_SIZE
 #define BUFFER_SIZE 77
+#endif
 
 int		ft_strchr(const char *s, int c);
 char	*ft_strjoin(char const *s1, char const *s2);

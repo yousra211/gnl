@@ -56,7 +56,6 @@ char *get_reste(char *comb)
 		return (NULL);
 	else
 		s = ft_substr(comb, i, ft_strlen(comb) - i);
-	free(comb);
 	return (s);
 }
 
@@ -71,6 +70,7 @@ char *get_next_line(int fd)
 	if (fd < 0 || read(fd, 0, 0) == -1 || BUFFER_SIZE < 0)
 	{
 		free(reste);
+		reste = NULL;
 		return (NULL);
 	}
 	string = malloc(BUFFER_SIZE + 1);
@@ -81,6 +81,7 @@ char *get_next_line(int fd)
 	s = get_line(comb);
 	char	*tmp = reste;
 	reste = get_reste(comb);
+	free(comb);
 	free(tmp);
 	return (s);
 }
