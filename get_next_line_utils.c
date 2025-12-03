@@ -54,6 +54,50 @@ char	*ft_strdup(const char *s1)
 	return (dst);
 }
 
+size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
+{
+	size_t	i;
+	size_t	srclen;
+
+	i = 0;
+	srclen = ft_strlen(src);
+	if (dstsize == 0)
+		return (srclen);
+	while (i < dstsize - 1 && src[i])
+	{
+		dst[i] = src[i];
+		i++;
+	}
+	dst[i] = '\0';
+	return (srclen);
+}
+
+char	*ft_substr(char const *s, unsigned int start, size_t len)
+{
+	size_t	i;
+	size_t	slen;
+	char	*substring;
+
+	i = 0;
+	if (!s)
+		return (NULL);
+	slen = ft_strlen(s);
+	if (slen <= start)
+	{
+		substring = malloc(1);
+		if (substring)
+			substring[0] = '\0';
+		return (substring);
+	}
+	if (start + len > slen)
+		len = slen - start;
+	substring = malloc((len + 1) * sizeof(char));
+	if (!substring)
+		return (NULL);
+	ft_strlcpy(substring, &s[start], (len + 1));
+	return (substring);
+}
+
 char	*ft_strjoin(char const *s1, char const *s2)
 {
 	int		s1len;
