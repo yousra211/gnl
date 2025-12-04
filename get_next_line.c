@@ -23,7 +23,7 @@ char *ft_read(int fd, char *string)
 	return (str);
 }
 
-char *get_line(char *comb)
+char *ft_get_line(char *comb)
 {
 	char	*s;
 	int		i;
@@ -40,7 +40,7 @@ char *get_line(char *comb)
 	return (s);
 }
 
-char *get_reste(char *comb)
+char *ft_get_reste(char *comb)
 {
 	char *s;
 	int	i;
@@ -78,31 +78,39 @@ char *get_next_line(int fd)
 	free(string);
 	comb = ft_strjoin(reste, str);
 	free(str);
-	s = get_line(comb);
+	s = ft_get_line(comb);
 	char	*tmp = reste;
-	reste = get_reste(comb);
+	reste = ft_get_reste(comb);
 	free(comb);
 	free(tmp);
 	return (s);
 }
-// int main()
+
+// void	f()
 // {
-// 	int fd = open("my.txt", O_RDWR);
-
-// 	char	*line = get_next_line(fd);
-// 	printf("%s", line);
-// 	line = get_next_line(fd);
-// 	printf("%s", line);
-// 	line = get_next_line(fd);
-// 	printf("%s", line);
-// 	line = get_next_line(fd);
-// 	printf("%s", line);  
-// 	// line = get_next_line(fd);
-// 	// printf("%s", line);  
-
-// 	// while (line)
-// 	// {
-// 	// 	printf("%s", line);
-// 	// 	line = get_next_line(fd);
-// 	// }
+// 	system("leaks -q a.out");
 // }
+
+int main(int ac, char **av)
+{
+	// atexit(f);
+	int fd = open(av[1], O_RDONLY);
+
+	char	*line = get_next_line(fd);
+	// printf("%s", line);
+	// line = get_next_line(fd);
+	// printf("%s", line);
+	// line = get_next_line(fd);
+	// printf("%s", line);
+	// line = get_next_line(fd);
+	// printf("%s", line);  
+	// line = get_next_line(fd);
+	// printf("%s", line);  
+
+	while (line)
+	{
+		printf("%s", line);
+		free(line);
+		line = get_next_line(fd);
+	}
+}
