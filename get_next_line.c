@@ -6,7 +6,7 @@
 /*   By: yhamdaou <yhamdaou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 12:37:59 by yhamdaou          #+#    #+#             */
-/*   Updated: 2025/12/04 12:56:28 by yhamdaou         ###   ########.fr       */
+/*   Updated: 2025/12/04 13:44:02 by yhamdaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ char	*get_next_line(int fd)
 	char		*str;
 	char		*s;
 	char		*comb;
-	char static	*reste;
+	static char	*reste;
 	char		*string;
 
 	if (fd < 0 || read(fd, 0, 0) == -1 || BUFFER_SIZE < 0)
